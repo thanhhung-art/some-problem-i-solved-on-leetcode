@@ -1,0 +1,23 @@
+var isPalindrome = function(x) {
+    if(x < 0){return false}
+    else {
+        
+        //create length of x
+        let length = 0;
+        for(let i = x; i > 0; i = Number.parseInt(i / 10)){
+            length++;
+        }
+        //split head and tail of x
+        let head = x,tail = 0;
+        for(let i= Number.parseInt(length / 2 ); i > 0; i--){
+            tail = Number.parseInt( (tail * 10)+ head % 10);
+            head = Number.parseInt(head / 10);
+        }
+        //if length is odd number, split head once more
+        if(length % 2 != 0){
+            head = Number.parseInt(head / 10);
+        }
+        return head == tail ? true : false;
+            
+    }
+};
